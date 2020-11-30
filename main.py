@@ -8,7 +8,7 @@ checkin_url = base_url + "/user/checkin"
 def main():
     if len(sys.argv) < 2:
         print("参数错误")
-        exit()
+        exit(-1)
     cookie = sys.argv[1]
     # print(cookie.split(";"))
     # exit()
@@ -23,11 +23,15 @@ def main():
         print(data)
     except :
         print("登录态过期")
-        exit(1)
+        exit(-1)
+    
     if data['ret'] == 1:
         print("签到成功")
+        exit(1)
     else:
         print("签到失败")
+        exit(-1)
+    
 
 if __name__ == "__main__":
     main()
