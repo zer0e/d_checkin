@@ -23,11 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: "update ubuntu and pip"
-        run: sudo apt-get update && sudo apt-get -y install pip
-      
-      - name: "install requests"
-        run: pip install -y requests
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
       
       - name: "run code"
-        run: python main.py ${{ secrets.cookie }}
+        run: |
+            pip install requests 
+            python main.py ${{ secrets.cookie }}
