@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: "update ubuntu and pip"
-        run: apt-get update && apt-get install pip
+        run: sudo apt-get update && sudo apt-get -y install pip
       
       - name: "install requests"
         run: pip install -y requests
