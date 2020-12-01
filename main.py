@@ -6,9 +6,10 @@ checkin_url = base_url + "/user/checkin"
 
 
 def main():
+    code = -1
     if len(sys.argv) < 2:
         print("参数错误")
-        exit(-1)
+        exit(code)
     cookie = sys.argv[1]
     # print(cookie.split(";"))
     # exit()
@@ -21,16 +22,15 @@ def main():
     try:
         data = h.json()
         print(data)
+        if data['ret'] == 1:
+            print("签到成功")
+            code = 0 
+        else:
+            print("签到失败")
     except :
         print("登录态过期")
-        exit(-1)
     
-    if data['ret'] == 1:
-        print("签到成功")
-        exit(1)
-    else:
-        print("签到失败")
-        exit(-1)
+    exit(code)
     
 
 if __name__ == "__main__":
