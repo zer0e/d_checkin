@@ -1,7 +1,7 @@
 import requests as r
 import sys
 
-base_url = "https://www.v2e.fun"
+base_url = "https://aaaa.gay"
 checkin_url = base_url + "/user/checkin"
 
 
