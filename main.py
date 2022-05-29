@@ -1,7 +1,8 @@
 import requests as r
-import sys,time,datetime
+import sys,time,datetime,base64
 
-base_url = "https://aaaa.gay"
+base64_base_url = "aHR0cHM6Ly9kb3VuYWkubG9s"
+base_url = base64.b64decode(base64_base_url).decode()
 checkin_url = base_url + "/user/checkin"
 
 
