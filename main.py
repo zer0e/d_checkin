@@ -31,7 +31,7 @@ def main():
         else:
             print("签到失败")
     except :
-        print("登录态过期")
+        print(f"登录态过期: {h.text}")
     
     exit(code)
     
