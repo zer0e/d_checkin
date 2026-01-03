@@ -3,6 +3,7 @@ import sys,time,datetime,base64
 
 base64_base_url = "aHR0cHM6Ly9kb3VuYWkucHJv"
 base_url = base64.b64decode(base64_base_url).decode()
+index_url = base_url + "/user/pannel"
 checkin_url = base_url + "/user/checkin"
 
 
@@ -23,6 +24,7 @@ def main():
         'x-requested-with': 'XMLHttpRequest',
         'cookie':cookie
     }
+    h = r.get(index_url,headers=headers)
     h = r.post(checkin_url,headers= headers)
     try:
         data = h.json()
